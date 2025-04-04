@@ -11,7 +11,9 @@ def create_app() -> FastAPI:
     # CORS config
     origins = [
         "http://localhost:5173",
-        "http://127.0.0.1:5173"
+        "http://127.0.0.1:5173",
+        "https://brainwave-ai.click",
+        "https://www.brainwave-ai.click",
     ]
 
     app.add_middleware(
@@ -33,7 +35,5 @@ app = create_app()
 
 if __name__ == "__main__":
     import os
-    import uvicorn
-
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run("main:app", host="0.0.0.0", port=port)
